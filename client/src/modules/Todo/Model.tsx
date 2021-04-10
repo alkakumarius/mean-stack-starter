@@ -2,7 +2,6 @@ export  interface Post{
     email : string;
     comment: string;
 }
-
 export  interface IMasterList{
     postList : Post[];
     deleteCallback: (id: number) => void;
@@ -13,7 +12,6 @@ export  interface IMasterUpdate{
     updateCallback: (post: Post, id: number) => void;
 
 }
-
 export interface IUpdatePost {
     post: Post;
     index: number;
@@ -21,7 +19,6 @@ export interface IUpdatePost {
 export  interface IMaster{
     postList : Post[];
 }
-
 export interface ICallBack{
     callback: (post: Post) => void;
 }
