@@ -6,10 +6,8 @@ import { Post, IMaster, IUpdatePost } from './Model';
 
 
 export default function TodoMaster() {
-    // eslint-disable-next-line
     const intialState: IMaster = {
         postList: []
-
     }
     const intialUpdateState: IUpdatePost = {
         index: 0,
@@ -17,7 +15,6 @@ export default function TodoMaster() {
             comment: "",
             email: ""
         }
-
     }
     const [state, setState] = useState(intialState);
     const [toggle, setToggle] = useState(true);
@@ -73,10 +70,6 @@ export default function TodoMaster() {
                     updateCallback={handleUpdatePost}
                 />
             )}
-
-
-
-
         </div>
     );
 }

@@ -15,11 +15,11 @@ export default function TodoUpdate(props: IMasterUpdate) {
   }, [props])
 
   const isValid = (post: Post) => {
-    if(post.comment.length == 0){
+    if(post.comment.length === 0){
         return false;
     }
 
-    if(post.email.length == 0){
+    if(post.email.length === 0){
         return false;
     }
 
@@ -34,7 +34,7 @@ export default function TodoUpdate(props: IMasterUpdate) {
     const valid = isValid(prevPost);
     alert(valid)
 
-    if(valid == true){
+    if(valid === true){
       setDisabled(false);
      }else{
       setDisabled(true);

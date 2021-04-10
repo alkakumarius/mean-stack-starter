@@ -8,16 +8,13 @@ export default function TodoCreate(props: ICallBack) {
     const [post, setPost] = useState(intialPost);
     const [disabled, setDisabled] = useState(true);
     const isValid = (post: Post) => {
-        if(post.comment.length == 0){
+        if(post.comment.length === 0){
             return false;
         }
-
-        if(post.email.length == 0){
+        if(post.email.length === 0){
             return false;
         }
-
         return true;
-
     }
     const handleOnChange = (e: { target: { name: string | number; value: any; }; }) => {
         let prevPost = JSON.parse(JSON.stringify(post));
@@ -25,7 +22,7 @@ export default function TodoCreate(props: ICallBack) {
         setPost(prevPost);
       
         const valid = isValid(prevPost);
-       if(valid == true){
+       if(valid === true){
         setDisabled(false);
        }else{
         setDisabled(true);
