@@ -32,7 +32,6 @@ export default function TodoUpdate(props: IMasterUpdate) {
     prevPost[e.target.name] = e.target.value;
     setPost(prevPost);
     const valid = isValid(prevPost);
-    alert(valid)
 
     if(valid === true){
       setDisabled(false);
