@@ -3,7 +3,7 @@ export  interface Post{
     email : string;
     comment: string;
     type: string;
-    checked: true;
+    checked: boolean;
 }
 export  interface IMasterList{
     postList : Post[];
