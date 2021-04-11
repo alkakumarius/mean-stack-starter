@@ -34,7 +34,10 @@ router.put('/todo', function (req, res, next) {
     TodoModel.findByIdAndUpdate(req.body._id,
         {
             email: req.body.email,
-            comment: req.body.comment
+            comment: req.body.comment,
+            type: req.body.type,
+            checked: req.body.checked
+            
         }, 
         function (err, data) {
             if (err) {
@@ -52,6 +55,9 @@ router.post('/todo', function (req, res, next) {
     var newTodo = new TodoModel();
     newTodo.email = req.body.email;
     newTodo.comment = req.body.comment;
+    newTodo.type = req.body.type;
+    newTodo.checked = req.body.checked ;
+
     console.log(req)
 
     newTodo.save(function (err, data) {
