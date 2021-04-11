@@ -88,9 +88,9 @@ export default function TodoUpdate(props: IMasterUpdate) {
           checked={post.checked} id="flexCheckChecked" name="checked" onChange={handleOnChangeChecked} />
         <label className="form-check-label" htmlFor="flexCheckChecked">
           Available For Review
-        </label> 
-        </div>
-          <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Post</button>
+        </label>
+      </div>
+      <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Post</button>
     </div>
   );
 }
