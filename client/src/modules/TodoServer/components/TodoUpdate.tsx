@@ -89,6 +89,7 @@ export default function TodoUpdate(props: IMasterUpdate) {
         <label className="form-check-label" htmlFor="flexCheckChecked">
           Available For Review
         </label> 
+        </div>
           <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Post</button>
     </div>
   );
