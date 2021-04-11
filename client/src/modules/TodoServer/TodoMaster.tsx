@@ -14,7 +14,9 @@ export default function TodoServerMaster() {
         post: {
             comment: "",
             email: "",
-            _id: ""
+            _id: "",
+            type:"",
+            checked:true
         }
     }
     const [state, setState] = useState(intialState);

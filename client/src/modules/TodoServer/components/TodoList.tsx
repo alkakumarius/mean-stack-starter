@@ -12,17 +12,22 @@ export default function TodoList(props: IMasterList) {
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">Comment</th>
+            <th scope="col">Type</th>
+            <th scope="col">Checked</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {props.postList.map((post: Post, id: number) => {
+            console.log(post)
               const _id = post._id!; 
               return (
               <tr key={_id}>
                 <th scope="row">{id + 1}</th>
                 <td>{post.email}</td>
                 <td>{post.comment}</td>
+                <td>{post.type}</td>
+                <td>{post.checked+""}</td>
                 <td>
                   <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                     <button onClick={() => {

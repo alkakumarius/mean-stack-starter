@@ -2,6 +2,8 @@ export  interface Post{
     _id?: string;
     email : string;
     comment: string;
+    type: string;
+    checked: boolean;
 }
 export  interface IMasterList{
     postList : Post[];
