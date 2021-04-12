@@ -3,6 +3,9 @@ import { Link, Route, Switch } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BookStore from "./modules/BookStore";
 import Todo from "./modules/Todo";
+import Category from "./modules/Category";
+
+
 function App() {
   return (
     <div className="container">
@@ -10,10 +13,9 @@ function App() {
       <Switch>
         <Route path="/" component={BookStore} exact />
         <Route path="/todo" component={Todo} />
+        <Route path="/category" component={Category} />
       </Switch>
     </div>
-
-
   );
 }
 
@@ -29,14 +31,13 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link className="nav-link" to="/todo">Todo </Link>
+            <Link className="nav-link" to="/category">Category </Link>
+
           </div>
         </div>
       </div>
     </nav>
-    // // <div>
-    //   <Link to="/">Book Store </Link>
-    //   <Link to="/todo">Todo </Link>
-    // </div>
+    
   );
 };
 

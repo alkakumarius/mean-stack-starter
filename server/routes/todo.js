@@ -18,8 +18,6 @@ mongoose.connect(db, {
     }
 });
 
-
-
 router.get('/todos', function (req, res, next) {
     TodoModel.find(function (err, data) {
         if (err) {
@@ -51,6 +49,7 @@ router.put('/todo', function (req, res, next) {
 });
 
 
+
 router.post('/todo', function (req, res, next) {
     var newTodo = new TodoModel();
     newTodo.email = req.body.email;
@@ -79,6 +78,64 @@ router.delete('/todo/:id', function (req, res, next) {
                 console.error(err);
             } else {
                 res.send(data);
+            }
+        });
+});
+
+router.get('/categorys', function (req, res, next) {
+    TodoModel.find(function (err, data) {
+        if (err) {
+            console.error(err);
+        } else {
+            res.send(data);
+        }
+    });
+});
+
+router.post('/category', function (req, res, next) {
+    var newTodo = new TodoModel();
+    newTodo.title = req.body.title;
+    newTodo.link = req.body.link;
+    newTodo.checked = req.body.checked ;
+
+    console.log(req)
+
+    newTodo.save(function (err, data) {
+        if (err) {
+            console.log(error);
+        }
+        else {
+            res.send("Data inserted");
+        }
+    });
+});
+
+router.delete('/category/:id', function (req, res, next) {
+    var objectId = mongoose.Types.ObjectId(req.params.id);
+    console.log(objectId, req.params.id)
+    TodoModel.deleteOne({ _id: objectId },
+        function (err, data) {
+            if (err) {
+                console.error(err);
+            } else {
+                res.send(data);
+            }
+        });
+});
+router.put('/category', function (req, res, next) {
+    TodoModel.findByIdAndUpdate(req.body._id,
+        {
+            link:req.body.link,
+            title:req.body.title,
+            checked:req.body.checked         
+        }, 
+        function (err, data) {
+            if (err) {
+                console.error(err);
+            }
+            else {
+                res.send(data);
+                console.log("Data updated!");
             }
         });
 });
