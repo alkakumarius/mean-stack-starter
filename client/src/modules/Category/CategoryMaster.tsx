@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
 import CategoryCreate from "./components/CategoryCreate";
-// import CategoryUpdate from "./components/CategoryUpdate";
+import CategoryUpdate from "./components/CategoryUpdate";
 
 
 import CategoryList from "./components/CategoryList";
-import { CategoryServerMasterPost, CategoryServerMasterGet, CategoryServerMasterDelete, } from './CategoryService';
-import { Category, ICategoryMaster } from "./Model";
+import { CategoryServerMasterPost, CategoryServerMasterGet, CategoryServerMasterDelete, CategoryServerMasterPut, } from './CategoryService';
+import { Category, ICategoryMaster, IUpdateCategory } from "./Model";
 
 export default function CategoryMaster() {
 
     const intialState: ICategoryMaster = {
         categoryList: []
     }
-    // const intialUpdateState: IUpdateCategory = {
-    //     category: {
-    //         title: "",
-    //         link: "",
-    //         checked: true
-    //     }
-    // }
-    // const [updateCategory, setUpdateCategory] = useState(intialUpdateState);
+    const intialUpdateState: IUpdateCategory = {
+        category: {
+            title: "",
+            link: "",
+            checked: true
+        }
+    }
+    const [updateCategory, setUpdateCategory] = useState(intialUpdateState);
     const [state, setState] = useState(intialState)
+    const [toggle, setToggle] = useState(true);
+
 
     const handleCategoryCreate = (category: Category) => {
         CategoryServerMasterPost(category)
@@ -43,7 +45,11 @@ export default function CategoryMaster() {
                 });
             });
     }
-    const handleUpdateCategory = () => {
+    const handleUpdateCategory = (category: Category) => {
+        setUpdateCategory({
+            category: category
+        });
+
 
 
     }
@@ -51,21 +57,44 @@ export default function CategoryMaster() {
         CategoryServerMasterDelete(id)
             .then(() => {
                 getCategory();
+                setToggle(toggle!)
             })
     }
+    const handleUpdateNewCategory = (category: Category) => {
+        CategoryServerMasterPut(category)
+            .then(() => {
+                getCategory();
+                setToggle(toggle!)
+            })
 
+    }
 
     return (
-        <>
-            <CategoryCreate callback={handleCategoryCreate} />
-            <CategoryList categoryList={state.categoryList}
-                deleteCallback={handleCategoryDelete}
-                updateCallback={handleUpdateCategory} />
-            {/* <CategoryUpdate
+        <div className="container">
+            {toggle ?(
+                <div className="row">
+                    <div className="col-3">
+                        <CategoryCreate callback={handleCategoryCreate} />
+                    </div>
+                    <div className="col-9">
+                        <CategoryList categoryList={state.categoryList}
+                            deleteCallback={handleCategoryDelete}
+                            updateCallback={handleUpdateCategory} />
+                    </div>
+                </div>
+
+            ):(
+            <CategoryUpdate
                 updateCategory={updateCategory}
-                updateCallback={abc}
-            /> */}
-        </>
+                updateCallback={handleUpdateNewCategory} />
+
+            )}
+
+
+
+
+        </div>
+
 
     )
 }

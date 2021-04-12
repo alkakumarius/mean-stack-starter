@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Category, ICategoryMasterUpdate } from "../Model";
 
 export default function CategoryUpdate(props: ICategoryMasterUpdate) {
-    const intialPost: Category= {
+    const intialCategory: Category = {
         title: "",
         link: "",
         checked: true
     }
-    const [category, setCategory] = useState(intialPost);
+    const [category, setCategory] = useState(intialCategory);
 
     const handleOnChange = (e: { target: { name: string | number; value: any; }; }) => {
         let prevCategory = JSON.parse(JSON.stringify(category));
@@ -20,13 +20,17 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
         prevCategory[e.target.name] = e.target.checked;
         setCategory(prevCategory);
     }
+    useEffect(() => {
+        setCategory(props.updateCategory.category)
+    }, [props])
     const handleClick = () => {
         props.updateCallback(category)
+        setCategory(intialCategory)
 
     }
     return (
         <div >
-            <h1>Create Post</h1>
+            <h1>Create Category</h1>
             <hr />
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>

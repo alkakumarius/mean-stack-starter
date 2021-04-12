@@ -19,7 +19,7 @@ export interface IUpdateCategory {
 
 }
 export interface ICategoryMasterUpdate {
-    updatePost: IUpdateCategory;
+    updateCategory: IUpdateCategory;
     updateCallback: (category: Category) => void;
 
 }
