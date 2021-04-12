@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var TodoModel = require('../todoschema');
 var mongoose = require('mongoose');
+const fs = require('fs')
 
 // Connecting to database
 var query = 'mongodb://localhost:27017/todos_db'
@@ -30,6 +31,23 @@ router.get('/todos', function (req, res, next) {
     });
 });
 
+router.post('/book/:filename/:pageNo', function (req, res, next) {
+    const content = req.body.d;
+    const filename = "/Users/pappukumar/mean-stack-starter/data-science/"+req.params.filename
+    const pageNo = req.params.pageNo;
+    
+    if (!fs.existsSync(filename)){
+        fs.mkdirSync(filename);
+    }
+
+    fs.writeFile(filename + "/" + pageNo + '.html', content, err => {
+        if (err) {
+            console.error(err)
+            return
+        }
+    })
+});
+
 router.put('/todo', function (req, res, next) {
     TodoModel.findByIdAndUpdate(req.body._id,
         {
@@ -37,8 +55,8 @@ router.put('/todo', function (req, res, next) {
             comment: req.body.comment,
             type: req.body.type,
             checked: req.body.checked
-            
-        }, 
+
+        },
         function (err, data) {
             if (err) {
                 console.error(err);
@@ -56,7 +74,7 @@ router.post('/todo', function (req, res, next) {
     newTodo.email = req.body.email;
     newTodo.comment = req.body.comment;
     newTodo.type = req.body.type;
-    newTodo.checked = req.body.checked ;
+    newTodo.checked = req.body.checked;
 
     console.log(req)
 
