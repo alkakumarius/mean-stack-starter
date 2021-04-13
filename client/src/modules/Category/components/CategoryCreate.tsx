@@ -11,10 +11,10 @@ export default function CategoryCreate(props: ICategoryCallBack) {
     const [disabled, setDisabled] = useState(true);
 
     const isValid = (category: Category) => {
-        if (category.title && category.title.length === 0) {
+        if (category.title.length === 0) {
             return false;
         }
-        if (category.link && category.link.length === 0) {
+        if (category.link.length === 0) {
             return false;
         }
         return true;
@@ -46,7 +46,7 @@ export default function CategoryCreate(props: ICategoryCallBack) {
     }
     const handleClick = () => {
         props.callback(category)
-
+        setDisabled(true);
     }
     return (
         <div >

@@ -21,7 +21,6 @@ export default function CategoryList(props: ICategoryMasterList) {
                         <tbody>
                             {props.categoryList.map((category: Category, index: number) => {
                                 const _id = category._id!;
-                                console.log(category)
                                 return (
                                     <tr>
                                         <th scope="row">{1 + index}</th>

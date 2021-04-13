@@ -11,10 +11,10 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
     const [disabled, setDisabled] = useState(true);
 
     const isValid = (category: Category) => {
-        if (category.title && category.title.length === 0) {
+        if ( category.title.length === 0) {
             return false;
         }
-        if (category.link && category.link.length === 0) {
+        if (category.link.length === 0) {
             return false;
         }
         return true;
@@ -49,6 +49,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
     const handleClick = () => {
         props.updateCallback(category)
         setCategory(intialCategory)
+
 
     }
     return (
