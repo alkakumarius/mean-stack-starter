@@ -14,7 +14,7 @@ export default function CategoryList(props: ICategoryMasterList) {
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Link</th>
-                                <th scope="col">Checked</th>
+                                <th scope="col">Available</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -27,7 +27,7 @@ export default function CategoryList(props: ICategoryMasterList) {
                                         <th scope="row">{1 + index}</th>
                                         <td>{category.title}</td>
                                         <td>{category.link}</td>
-                                        <td>{category.checked}</td>
+                                        <td>{category.available}</td>
                                         <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                                             <button onClick={() => {
                                                 props.deleteCallback(_id);

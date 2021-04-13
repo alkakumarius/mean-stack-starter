@@ -1,7 +1,7 @@
 
 export interface Category {
     _id?: string;
-    checked: boolean;
+    available: boolean;
     title: string,
     link: string,
 }

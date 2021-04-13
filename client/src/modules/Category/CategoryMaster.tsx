@@ -16,7 +16,7 @@ export default function CategoryMaster() {
         category: {
             title: "",
             link: "",
-            checked: true
+            available: true
         }
     }
     const [updateCategory, setUpdateCategory] = useState(intialUpdateState);

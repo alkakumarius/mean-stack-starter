@@ -5,7 +5,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
     const intialCategory: Category = {
         title: "",
         link: "",
-        checked: true
+        available: true
     }
     const [category, setCategory] = useState(intialCategory);
     const [disabled, setDisabled] = useState(true);
@@ -32,7 +32,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
         }
 
     }
-    const handleOnChangeChecked = (e: { target: { name: string | number; checked: any; }; }) => {
+    const handleOnChangeAvailable = (e: { target: { name: string | number; checked: boolean; }; }) => {
         let prevCategory = JSON.parse(JSON.stringify(category));
         prevCategory[e.target.name] = e.target.checked;
         setCategory(prevCategory);
@@ -65,7 +65,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
             </div>
             <div className="mb-3">
                 <input className="form-check-input" type="checkbox"
-                    checked={category.checked} id="flexCheckChecked" name="checked" onChange={handleOnChangeChecked} />
+                    checked={category.available} id="flexCheckAvailable" name="available" onChange={handleOnChangeAvailable} />
                 <label className="form-check-label" htmlFor="flexCheckChecked">
                     Available For Review
             </label>
