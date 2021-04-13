@@ -3,23 +3,7 @@ var router = express.Router();
 var CategoryModel = require('../categoryschema');
 var mongoose = require('mongoose');
 
-// Connecting to database
-var query = 'mongodb://localhost:27017/categorys_db'
-
-const db = (query);
-mongoose.Promise = global.Promise;
-
-mongoose.connect(db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, function (error) {
-    if (error) {
-        console.log("Error!" + error);
-    }
-});
-
-
-router.get('/categorys', function (req, res, next) {
+router.get('/categories', function (req, res, next) {
     CategoryModel.find(function (err, data) {
         if (err) {
             console.error(err);
@@ -33,7 +17,7 @@ router.post('/category', function (req, res, next) {
     var newCategory = new CategoryModel();
     newCategory.title = req.body.title;
     newCategory.link = req.body.link;
-    newCategory.checked = req.body.checked ;
+    newCategory.available = req.body.available ;
 
     console.log(req)
 
@@ -64,7 +48,7 @@ router.put('/category', function (req, res, next) {
         {
             link:req.body.link,
             title:req.body.title,
-            checked:req.body.checked         
+            available:req.body.available         
         }, 
         function (err, data) {
             if (err) {
