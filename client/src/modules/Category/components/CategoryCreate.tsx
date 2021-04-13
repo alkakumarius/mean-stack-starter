@@ -8,17 +8,41 @@ export default function CategoryCreate(props: ICategoryCallBack) {
         checked: true
     }
     const [category, setCategory] = useState(intialPost);
+    const [disabled, setDisabled] = useState(true);
+
+    const isValid = (category: Category) => {
+        if (category.title && category.title.length === 0) {
+            return false;
+        }
+        if (category.link && category.link.length === 0) {
+            return false;
+        }
+        return true;
+    }
 
     const handleOnChange = (e: { target: { name: string | number; value: any; }; }) => {
         let prevCategory = JSON.parse(JSON.stringify(category));
         prevCategory[e.target.name] = e.target.value;
         setCategory(prevCategory);
+        const valid = isValid(prevCategory)
+        if(valid===true){
+            setDisabled (false)
+        }else{
+            setDisabled(true)
+        }
 
     }
     const handleOnChangeChecked = (e: { target: { name: string | number; checked: any; }; }) => {
         let prevCategory = JSON.parse(JSON.stringify(category));
         prevCategory[e.target.name] = e.target.checked;
         setCategory(prevCategory);
+        const valid = isValid(prevCategory)
+        if(valid===true){
+            setDisabled (false)
+        }else{
+            setDisabled(true)
+        }
+    
     }
     const handleClick = () => {
         props.callback(category)
@@ -43,7 +67,7 @@ export default function CategoryCreate(props: ICategoryCallBack) {
                     Available For Review
             </label>
             </div>
-            <button onClick={handleClick} type="button" className="btn btn-primary">Add Category</button>
+            <button  disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Add Category</button>
         </div>
     )
 }
