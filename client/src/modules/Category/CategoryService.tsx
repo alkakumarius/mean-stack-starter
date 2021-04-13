@@ -1,4 +1,3 @@
-// import { Category } from "../TodoServer/Model";
 
 import { Category } from "./Model";
 

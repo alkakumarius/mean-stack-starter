@@ -5,8 +5,7 @@ var todoSchema = new mongoose.Schema({
 	email:String,
 	type:String,
 	checked:Boolean,
-	link:String,
-	title:String,
+
 
 });
 
