@@ -51,7 +51,7 @@ export default function CategoryCreate(props: ICategoryCallBack) {
     return (
         <div >
             <h1>Create Category</h1>
-            <hr />
+            <hr/>
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
                 <input name="title" onChange={handleOnChange} value={category.title} type="title" className="form-control" id="exampleFormControlInput1" placeholder="title" />

@@ -48,8 +48,9 @@ export default function CategoryMaster() {
     const handleUpdateCategory = (category: Category) => {
         setUpdateCategory({
             category: category
-        });
 
+        });
+        setToggle(!toggle)
 
 
     }
@@ -57,21 +58,22 @@ export default function CategoryMaster() {
         CategoryServerMasterDelete(id)
             .then(() => {
                 getCategory();
-                setToggle(toggle!)
+
             })
     }
     const handleUpdateNewCategory = (category: Category) => {
         CategoryServerMasterPut(category)
             .then(() => {
                 getCategory();
-                setToggle(toggle!)
+                setToggle(!toggle)
             })
 
     }
 
     return (
         <div className="container">
-            {toggle ?(
+          
+            {toggle ? (
                 <div className="row">
                     <div className="col-3">
                         <CategoryCreate callback={handleCategoryCreate} />
@@ -83,16 +85,12 @@ export default function CategoryMaster() {
                     </div>
                 </div>
 
-            ):(
-            <CategoryUpdate
-                updateCategory={updateCategory}
-                updateCallback={handleUpdateNewCategory} />
+            ) : (
+                <CategoryUpdate
+                    updateCategory={updateCategory}
+                    updateCallback={handleUpdateNewCategory} />
 
             )}
-
-
-
-
         </div>
 
 

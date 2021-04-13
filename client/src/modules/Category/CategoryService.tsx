@@ -2,7 +2,7 @@
 import { Category } from "./Model";
 
 export function CategoryServerMasterGet() {
-  return fetch("http://localhost:4000/v1/categorys");
+  return fetch("http://localhost:4000/v1/categories");
 }
 export function CategoryServerMasterPost(category: Category) {
   return fetch("http://localhost:4000/v1/category", {

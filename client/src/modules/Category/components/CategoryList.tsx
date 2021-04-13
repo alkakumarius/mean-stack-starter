@@ -5,7 +5,7 @@ export default function CategoryList(props: ICategoryMasterList) {
     return (
         <>
             <div>
-                <h1>Show Categorys</h1>
+                <h1>Show Categories</h1>
                 <hr />
                 {props.categoryList.length > 0 ? (
                     <table className="table">
@@ -27,7 +27,7 @@ export default function CategoryList(props: ICategoryMasterList) {
                                         <th scope="row">{1 + index}</th>
                                         <td>{category.title}</td>
                                         <td>{category.link}</td>
-                                        <td>{category.available}</td>
+                                        <td>{category.available + ""}</td>
                                         <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                                             <button onClick={() => {
                                                 props.deleteCallback(_id);
