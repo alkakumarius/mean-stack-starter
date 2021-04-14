@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ICategory, ICategoryMaster } from "../model";
-export default function CategoryItem() {
+export default function Category() {
     const initialState: ICategoryMaster = {
         categoryList: []
     }
@@ -16,7 +16,7 @@ export default function CategoryItem() {
             });
     }, [])
     return (
-        <>
+        <div className="w-25 p-3">
             <ul className="list-group">
                 {category.categoryList
                     .filter((category: ICategory) => {
@@ -32,6 +32,6 @@ export default function CategoryItem() {
                     })}
 
             </ul>
-        </>
+        </div>
     )
 }

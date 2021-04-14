@@ -1,6 +1,6 @@
 
 import {  NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
-import CategoryItem from './modules/category/CategoryItem';
+import Category from './modules/category/Category';
 
 
 export default function Public() {
@@ -10,16 +10,16 @@ export default function Public() {
     <div className="container">
       <ul className="nav nav-pills">
         <li className="nav-item">
-          <NavLink activeClassName={"active"}  className="nav-link" to={`${url}/categoryItem`}>CategoryItem</NavLink>
+          <NavLink activeClassName={"active"}  className="nav-link" to={`${url}/category`}>Category</NavLink>
         </li>       
       </ul>
 
       <Switch>
         <Route exact path={path}>
-          <CategoryItem />
+          <Category/>
         </Route>
-        <Route path={`${path}/categoryItem`}>
-          <CategoryItem />
+        <Route path={`${path}/category`}>
+          <Category/>
         </Route>      
       </Switch>
     </div>

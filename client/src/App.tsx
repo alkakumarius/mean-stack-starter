@@ -2,7 +2,6 @@
 import { NavLink, Route, Switch } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BookStore from "./admin/modules/BookStore";
-import Category from "./admin/modules/Category";
 import Admin from './admin/Admin';
 import Public from './public/Public';
 
