@@ -4,6 +4,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BookStore from "./admin/modules/BookStore";
 import Category from "./admin/modules/Category";
 import Admin from './admin/Admin';
+import Public from './public/Public';
+
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <Switch>
         <Route path="/" component={BookStore} exact />
         <Route path="/admin" component={Admin} />
-        <Route path="/public" component={Category} />
+        <Route path="/public" component={Public} />
       </Switch>
     </div>
   );

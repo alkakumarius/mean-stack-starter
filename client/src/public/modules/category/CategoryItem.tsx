@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ICategory, ICategoryMaster } from "./model";
+import { ICategory, ICategoryMaster } from "../model";
 export default function CategoryItem() {
     const initialState: ICategoryMaster = {
         categoryList: []
