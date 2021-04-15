@@ -4,7 +4,7 @@ export default function CategoryList(props: ICategoryMasterList) {
     console.log(props)
     return (
         <>
-            <div className="w-25 p-3">
+            <div >
                 <h1>Show Categories</h1>
                 <hr />
                 {props.categoryList.length > 0 ? (
