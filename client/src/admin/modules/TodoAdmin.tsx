@@ -1,11 +1,11 @@
-import TodoServerMaster from "./TodoServer/TodoMaster";
+import TodoMaster from "./TodoAdmin/TodoMasterAdmin";
 
 function Todo() {
   return (
    
     <div className="container">
       <br/>
-      <TodoServerMaster />
+      <TodoMaster />
     </div>
 
   );

@@ -1,8 +1,8 @@
 
 import {  NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
-import Category from './modules/Category';
-import Todo from './modules/Todo';
-import TodoServer from './modules/TodoServer';
+import Category from './modules/CategoryAdmin';
+import Todo from './modules/TodoAdmin';
+import TodoServer from './modules/TodoServerAdmin';
 
 
 export default function Admin() {

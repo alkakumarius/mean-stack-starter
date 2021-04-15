@@ -1,5 +1,5 @@
 
-import { Category } from "./Model";
+import { Category } from "./ModelAdmin";
 
 export function CategoryServerMasterGet() {
   return fetch("http://localhost:4000/v1/categories");

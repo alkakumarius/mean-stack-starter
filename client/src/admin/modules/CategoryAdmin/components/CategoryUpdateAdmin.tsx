@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Category, ICategoryMasterUpdate } from "../Model";
+import { Category, ICategoryMasterUpdate } from "../ModelAdmin";
 
 export default function CategoryUpdate(props: ICategoryMasterUpdate) {
     const intialCategory: Category = {

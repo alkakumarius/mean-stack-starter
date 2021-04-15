@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import TodoCreate from './components/TodoCreate';
-import TodoList from './components/TodoList';
-import TodoUpdate from './components/TodoUpdate';
+import React, { useState } from 'react';
+import TodoCreate from './components/TodoCreateAdmin';
+import TodoList from './components/TodoListAdmin';
+import TodoUpdate from './components/TodoUpdateAdmin';
 import { Post, IMaster, IUpdatePost } from './Model';
-import { TodoServerMasterDelete, TodoServerMasterGet, TodoServerMasterPatch, TodoServerMasterPost } from './TodoService';
 
 
-export default function TodoServerMaster() {
+export default function TodoMaster() {
     const intialState: IMaster = {
         postList: []
     }
     const intialUpdateState: IUpdatePost = {
+        index: 0,
         post: {
             comment: "",
-            email: "",
-            _id: "",
-            type:"",
-            checked:true
+            email: ""
         }
     }
     const [state, setState] = useState(intialState);
@@ -24,46 +21,33 @@ export default function TodoServerMaster() {
     const [updatePost, setUpdatePost] = useState(intialUpdateState);
 
     const handleTodoCreate = (post: Post) => {
-        TodoServerMasterPost(post)
-            .then(() => {
-                getTodos();
-            })
+        setState({
+            postList: [...state.postList, post]
+        });
     }
-    const handleDelete = (id: string) => {
-        TodoServerMasterDelete(id)
-            .then(() => {
-                getTodos();
-            })
+    const handleDelete = (id: number) => {
+        let prevPostList = JSON.parse(JSON.stringify(state.postList));
+        prevPostList.splice(id, 1);
+        setState({
+            postList: prevPostList
+        });
     }
-    const handleUpdate = (post: Post) => {
+    const handleUpdate = (post: Post, id: number) => {
         setUpdatePost({
-            post: post
+            post: post,
+            index: id
         });
 
         setToggle(!toggle)
     }
-    
-    const handleUpdatePost = (post: Post) => {
-        TodoServerMasterPatch(post)
-        .then(() => {
-            getTodos();
-            setToggle(!toggle)
-        })
-    }
-
-    useEffect(() => {
-        getTodos();
-
-    }, [])
-
-    const getTodos = () => {
-        TodoServerMasterGet()
-            .then(res => res.json())
-            .then((res) => {
-                setState({
-                    postList: res
-                });
-            });
+    const handleUpdatePost = (post: Post, id: number) => {
+        let prevPostList = JSON.parse(JSON.stringify(state.postList));
+        prevPostList[id] = post;
+        setState({
+            postList: prevPostList,
+           
+        });
+        setToggle(!toggle)
     }
 
     return (

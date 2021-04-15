@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Category, ICategoryCallBack } from "../Model";
+import { Category, ICategoryCallBack } from "../ModelAdmin";
 
 export default function CategoryCreate(props: ICategoryCallBack) {
     const intialPost: Category = {

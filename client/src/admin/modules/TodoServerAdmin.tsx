@@ -1,4 +1,4 @@
-import TodoServerMaster from "./TodoServer/TodoMaster";
+import TodoServerMaster from "./TodoServerAdmin/TodoMasterAdmin";
 
 export default function TodoServer() {
   return (

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import CategoryCreate from "./components/CategoryCreate";
-import CategoryUpdate from "./components/CategoryUpdate";
+import CategoryCreate from "./components/CategoryCreateAdmin";
+import CategoryUpdate from "./components/CategoryUpdateAdmin";
 
 
-import CategoryList from "./components/CategoryList";
-import { CategoryServerMasterPost, CategoryServerMasterGet, CategoryServerMasterDelete, CategoryServerMasterPut, } from './CategoryService';
-import { Category, ICategoryMaster, IUpdateCategory } from "./Model";
+import CategoryList from "./components/CategoryListAdmin";
+import { CategoryServerMasterPost, CategoryServerMasterGet, CategoryServerMasterDelete, CategoryServerMasterPut, } from './CategoryServiceAdmin';
+import { Category, ICategoryMaster, IUpdateCategory } from "./ModelAdmin";
 
 export default function CategoryMaster() {
 

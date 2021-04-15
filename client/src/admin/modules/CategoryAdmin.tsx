@@ -1,4 +1,4 @@
-import CategoryMaster from "./Category/CategoryMaster";
+import CategoryMaster from "./CategoryAdmin/CategoryMasterAdmin";
 
 function Category() {
   return (

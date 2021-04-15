@@ -1,6 +1,6 @@
 
 import {  NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
-import Category from './modules/category/Category';
+import Category from './modules/categoryPublic/CategoryPublic';
 
 
 export default function Public() {

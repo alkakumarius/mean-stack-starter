@@ -1,10 +1,10 @@
-import { Category, ICategoryMasterList } from "../Model";
+import { Category, ICategoryMasterList } from "../ModelAdmin";
 
 export default function CategoryList(props: ICategoryMasterList) {
     console.log(props)
     return (
         <>
-            <div>
+            <div className="w-25 p-3">
                 <h1>Show Categories</h1>
                 <hr />
                 {props.categoryList.length > 0 ? (

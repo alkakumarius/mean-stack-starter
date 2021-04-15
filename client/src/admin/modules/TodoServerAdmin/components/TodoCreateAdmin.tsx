@@ -10,46 +10,47 @@ export default function TodoCreate(props: ICallBack) {
     const [post, setPost] = useState(intialPost);
     const [disabled, setDisabled] = useState(true);
     const isValid = (post: Post) => {
-        if (post.comment && post.comment.length === 0) {
-            return false;
+        if (post.email.length === 0) {
+            return false
         }
-        if (post.email && post.email.length === 0) {
-            return false;
+        if ( post.comment.length === 0) {
+            return false
         }
-        if (post.type && post.type.length === 0) {
-            return false;
+        if ( post.type.length === 0) {
+            return false
         }
         return true;
     }
+
     const handleOnChange = (e: { target: { name: string | number; value: any; }; }) => {
         let prevPost = JSON.parse(JSON.stringify(post));
         prevPost[e.target.name] = e.target.value;
         setPost(prevPost);
-
-        const valid = isValid(prevPost);
+        const valid = isValid(prevPost)
         if (valid === true) {
-            setDisabled(false);
+            setDisabled(false)
         } else {
-            setDisabled(true);
+            setDisabled(true)
         }
+
     }
     const handleOnChangeChecked = (e: { target: { name: string | number; checked: any; }; }) => {
         let prevPost = JSON.parse(JSON.stringify(post));
         prevPost[e.target.name] = e.target.checked;
         setPost(prevPost);
-
-        const valid = isValid(prevPost);
+        const valid = isValid(prevPost)
         if (valid === true) {
-            setDisabled(false);
+            setDisabled(false)
         } else {
-            setDisabled(true);
+            setDisabled(true)
         }
+
+
     }
 
     const handleClick = () => {
         props.callback(post);
-        setPost(intialPost);
-        setDisabled(true);
+        setDisabled(true)
 
     }
     return (
