@@ -14,7 +14,9 @@ export default function BookTitleListAdmin(props: IBookTitleMasterList) {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
-
+                            <th scope="col">Publisher</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,7 +26,8 @@ export default function BookTitleListAdmin(props: IBookTitleMasterList) {
                                 <tr>
                                     <th scope="row">{1 + index}</th>
                                     <td>{bookTitle.title}</td>
-
+                                    <td>{bookTitle.publisher}</td>
+                                    <td>{bookTitle.author}</td>
                                     <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                                         <button onClick={() => {
                                             props.deleteCallback(_id);

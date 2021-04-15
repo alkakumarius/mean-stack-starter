@@ -5,6 +5,8 @@ import { BookTitle, IBookTitleCallBack } from '../ModelBook';
 export default function BookTitleAdmin(props: IBookTitleCallBack) {
     const intialPost: BookTitle = {
         title: "",
+        publisher: "",
+        author:"",
 
     }
     const [bookTitle, setBookTitle] = useState(intialPost);
@@ -12,6 +14,12 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
 
     const isValid = (bookTitle: BookTitle) => {
         if (bookTitle.title.length === 0) {
+            return false;
+        }
+        if (bookTitle.publisher.length === 0) {
+            return false;
+        }
+        if (bookTitle.author.length === 0) {
             return false;
         }
 
@@ -43,6 +51,15 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
                 <input name="title" onChange={handleOnChange} value={bookTitle.title} type="title" className="form-control" id="exampleFormControlInput1" placeholder="title" />
             </div>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">Publisher</label>
+                <input name="publisher" onChange={handleOnChange} value={bookTitle.publisher} type="publisher" className="form-control" id="exampleFormControlInput1" placeholder="publisher" />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
+                <input name="author" onChange={handleOnChange} value={bookTitle.author} type="author" className="form-control" id="exampleFormControlInput1" placeholder="author" />
+            </div>
+
 
             <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Add Book </button>
         </div>

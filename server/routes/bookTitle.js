@@ -16,6 +16,10 @@ router.get('/books', function (req, res, next) {
 router.post('/book', function (req, res, next) {
     var newBookTitle = new BookModel();
     newBookTitle.title = req.body.title;
+    newBookTitle.publisher = req.body.publisher;
+    newBookTitle.author = req.body.author;
+
+
 
     console.log(req)
 

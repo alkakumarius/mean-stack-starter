@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import BookTitleAdmin from "./components/BookTitleAdmin"
+import BookTitleAdmin from "./components/BookTitleCreateAdmin"
 import BookTitleListAdmin from "./components/BookTitleListAdmin"
 import BookTitleUpdate from "./components/BookTitleUpdate";
 
@@ -7,7 +7,7 @@ import BookTitleUpdate from "./components/BookTitleUpdate";
 import { BookTitleServerMasterGet, BookTitleServerMasterPost, BookTitleServerMasterPut, BookTitleServerMasterDelete, } from './BookTitleServerAdmin';
 import { BookTitle, IUpdateBookTitle, IBookTitleMaster } from "./ModelBook";
 
-export default function CategoryMaster() {
+export default function BookTitleMasterAdmin() {
 
     const intialState: IBookTitleMaster = {
         bookTitle: []
@@ -15,7 +15,8 @@ export default function CategoryMaster() {
     const intialUpdateState: IUpdateBookTitle = {
         bookTitle: {
             title: "",
-
+            publisher:"",
+            author:""
         }
     }
     const [updateBookTitle, setUpdateBookTitle] = useState(intialUpdateState);
@@ -86,7 +87,7 @@ export default function CategoryMaster() {
 
             ) : (
                 <BookTitleUpdate
-                    updateCategory={updateBookTitle}
+                updateBookTitle={updateBookTitle}
                     updateCallback={handleUpdateNewBookTitle} />
 
             )}

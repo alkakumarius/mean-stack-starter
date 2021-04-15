@@ -1,6 +1,8 @@
 export interface BookTitle {
     title: string,
     _id?: string;
+    publisher: string;
+    author:string;
 
 
 }
@@ -22,7 +24,7 @@ export interface IUpdateBookTitle {
 
 }
 export interface IBookTitleMasterUpdate {
-    updateCategory: IUpdateBookTitle;
+    updateBookTitle: IUpdateBookTitle;
     updateCallback: (BookTitle: BookTitle) => void;
 
 }
