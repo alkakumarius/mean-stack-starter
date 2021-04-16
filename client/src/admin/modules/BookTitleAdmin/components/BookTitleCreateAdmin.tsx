@@ -45,7 +45,7 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
     }
     return (
         <div >
-            <h1>Create BookTitle</h1>
+            <h1>Create Book</h1>
             <hr />
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
@@ -59,8 +59,6 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
                 <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
                 <input name="author" onChange={handleOnChange} value={bookTitle.author} type="author" className="form-control" id="exampleFormControlInput1" placeholder="author" />
             </div>
-
-
             <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Add Book </button>
         </div>
     )

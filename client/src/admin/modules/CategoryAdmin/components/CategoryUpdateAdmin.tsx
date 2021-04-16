@@ -54,7 +54,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
     }
     return (
         <div >
-            <h1>Create Category</h1>
+            <h1>Update Category</h1>
             <hr />
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
@@ -71,7 +71,7 @@ export default function CategoryUpdate(props: ICategoryMasterUpdate) {
                     Available For Review
             </label>
             </div>
-            <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Add Category</button>
+            <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Category</button>
         </div>
     )
 }

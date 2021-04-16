@@ -6,7 +6,7 @@ export default function BookTitleListAdmin(props: IBookTitleMasterList) {
     return (
         <>
             <div >
-                <h1>Show BookTitle</h1>
+                <h1>Show Book</h1>
                 <hr />
 
                 <table className="table">
@@ -31,11 +31,11 @@ export default function BookTitleListAdmin(props: IBookTitleMasterList) {
                                     <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                                         <button onClick={() => {
                                             props.deleteCallback(_id);
-                                        }} type="button" className="btn btn-danger">Delete BookTitle </button>
+                                        }} type="button" className="btn btn-danger">Delete Book </button>
                                         <button onClick={() => {
                                             props.updateCallback(bookTitle);
                                         }}
-                                            type="button" className="btn btn-warning">Update BookTitle</button>
+                                            type="button" className="btn btn-warning">Update Book</button>
                                     </div>
                                 </tr>
                             )
