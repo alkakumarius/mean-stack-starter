@@ -3,8 +3,6 @@ export interface BookTitle {
     _id?: string;
     publisher: string;
     author:string;
-
-
 }
 export interface IBookTitleMaster {
     bookTitle: BookTitle[]

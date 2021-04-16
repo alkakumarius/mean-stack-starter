@@ -1,6 +1,6 @@
 
 import {  NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
-import BookTitle from './modules/BookTitle';
+import Book from './modules/Book';
 import Category from './modules/CategoryAdmin';
 import Todo from './modules/TodoAdmin';
 import TodoServer from './modules/TodoServerAdmin';
@@ -22,7 +22,7 @@ export default function Admin() {
           <NavLink activeClassName={"active"}  className="nav-link" to={`${url}/todoServer`}>Todoserver</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink activeClassName={"active"}  className="nav-link" to={`${url}/bookTitle`}>BookTitle</NavLink>
+          <NavLink activeClassName={"active"}  className="nav-link" to={`${url}/bookTitle`}>Book</NavLink>
         </li>
        
        
@@ -42,7 +42,7 @@ export default function Admin() {
           <TodoServer/>
         </Route>
         <Route path={`${path}/bookTitle`}>
-          <BookTitle/>
+          <Book/>
         </Route>
         
       </Switch>

@@ -13,13 +13,14 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
     const [disabled, setDisabled] = useState(true);
 
     const isValid = (bookTitle: BookTitle) => {
-        if (bookTitle.title.length === 0) {
+        console.log(bookTitle)
+        if (bookTitle.title && bookTitle.title.length === 0) {
             return false;
         }
-        if (bookTitle.publisher.length === 0) {
+        if (bookTitle.publisher && bookTitle.publisher.length === 0) {
             return false;
         }
-        if (bookTitle.author.length === 0) {
+        if (bookTitle && bookTitle.author.length === 0) {
             return false;
         }
 
@@ -44,10 +45,7 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
     const handleClick = () => {
         props.updateCallback(bookTitle)
         setBookTitle(intialBook)
-
-
     }
-
 
     return (
         <div >
@@ -65,7 +63,6 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
                 <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
                 <input name="author" onChange={handleOnChange} value={bookTitle.author} type="author" className="form-control" id="exampleFormControlInput1" placeholder="author" />
             </div>
-
             <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Book </button>
         </div>
     )
