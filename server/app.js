@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var todoRouter = require('./routes/todo');
 var categoryRouter = require('./routes/category');
-var bookTitleRouter = require('./routes/bookTitle');
+var bookTitleRouter = require('./routes/book');
 
 var app = express();
 
