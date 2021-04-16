@@ -7,6 +7,7 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
         title: "",
         publisher: "",
         author:"",
+        releaseDate:"",
 
     }
     const [bookTitle, setBookTitle] = useState(intialPost);
@@ -20,6 +21,9 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
             return false;
         }
         if (bookTitle.author.length === 0) {
+            return false;
+        }
+        if (bookTitle.releaseDate.length === 0) {
             return false;
         }
 
@@ -58,6 +62,10 @@ export default function BookTitleAdmin(props: IBookTitleCallBack) {
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
                 <input name="author" onChange={handleOnChange} value={bookTitle.author} type="author" className="form-control" id="exampleFormControlInput1" placeholder="author" />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">ReleaseDate</label>
+                <input name="releaseDate" onChange={handleOnChange} value={bookTitle.releaseDate} type="releaseDate" className="form-control" id="exampleFormControlInput1" placeholder="releaseDater" />
             </div>
             <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Add Book </button>
         </div>

@@ -16,7 +16,8 @@ export default function BookTitleMasterAdmin() {
         bookTitle: {
             title: "",
             publisher:"",
-            author:""
+            author:"",
+            releaseDate:""
         }
     }
     const [updateBookTitle, setUpdateBookTitle] = useState(intialUpdateState);

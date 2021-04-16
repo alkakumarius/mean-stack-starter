@@ -6,7 +6,9 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
     const intialBook: BookTitle = {
         title: "",
         publisher: "",
-        author: ""
+        author: "",
+        releaseDate:"",
+
 
     }
     const [bookTitle, setBookTitle] = useState(intialBook);
@@ -44,7 +46,6 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
     }, [props])
     const handleClick = () => {
         props.updateCallback(bookTitle)
-        setBookTitle(intialBook)
     }
 
     return (
@@ -62,6 +63,10 @@ export default function BookTitleUpdate(props: IBookTitleMasterUpdate) {
             <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
                 <input name="author" onChange={handleOnChange} value={bookTitle.author} type="author" className="form-control" id="exampleFormControlInput1" placeholder="author" />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlInput1" className="form-label">ReleaseDate</label>
+                <input name="releaseDate" onChange={handleOnChange} value={bookTitle.releaseDate} type="releaseDate" className="form-control" id="exampleFormControlInput1" placeholder="releaseDater" />
             </div>
             <button disabled={disabled} onClick={handleClick} type="button" className="btn btn-primary">Update Book </button>
         </div>

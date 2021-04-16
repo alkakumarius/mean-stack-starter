@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {BookServerMasterGet} from "./BookServerPublic"
 
 import {   IBookMaster } from "../bookModel";
 export default function BookTitle() {
@@ -27,21 +28,24 @@ export default function BookTitle() {
         ]
 
     }
-    const [bookTitle, setBookTitle] = useState(initialState)
+    const [book, setBook] = useState(initialState)
     useEffect(() => {
-        const url = "http://localhost:4000/v1/Architectures";
-        fetch(url)
-            .then(res => res.json())
-            .then(res => {
-                setBookTitle({
-                    Architecture: res
-                })
-            });
+       getBook();
     }, [])
+
+    const getBook = () => {
+        BookServerMasterGet()
+            .then(res => res.json())
+            .then((res) => {
+                setBook({
+                    Architecture : res
+                });
+            });
+    }
     return (
         <div className="w- p-3">
             <ul className="list-group">
-                {bookTitle.Architecture.map((ele,id) => {
+                {book.Architecture.map((ele,id) => {
                     console.log(ele)
                     
                     return (

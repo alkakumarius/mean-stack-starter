@@ -18,6 +18,7 @@ router.post('/book', function (req, res, next) {
     newBookTitle.title = req.body.title;
     newBookTitle.publisher = req.body.publisher;
     newBookTitle.author = req.body.author;
+    newBookTitle.releaseDate = req.body.releaseDate;
 
 
 
@@ -49,6 +50,9 @@ router.put('/book', function (req, res, next) {
     BookModel.findByIdAndUpdate(req.body._id,
         {
             title: req.body.title,
+            publisher:req.body.publisher,
+            author:req.body.author,
+            releaseDate:req.body.releaseDate
         },
         function (err, data) {
             if (err) {

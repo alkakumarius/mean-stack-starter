@@ -2,6 +2,7 @@ export interface BookTitle {
     title: string,
     _id?: string;
     publisher: string;
+     releaseDate:string;
     author:string;
 }
 export interface IBookTitleMaster {
