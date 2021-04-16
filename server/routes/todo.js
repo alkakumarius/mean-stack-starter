@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 const fs = require('fs')
 
 // Connecting to database
-var query = 'mongodb://localhost:27017/todos_db'
+var query = 'mongodb://localhost:27017/mss_db'
 
 const db = (query);
 mongoose.Promise = global.Promise;
@@ -18,8 +18,6 @@ mongoose.connect(db, {
         console.log("Error!" + error);
     }
 });
-
-
 
 router.get('/todos', function (req, res, next) {
     TodoModel.find(function (err, data) {
@@ -69,6 +67,7 @@ router.put('/todo', function (req, res, next) {
 });
 
 
+
 router.post('/todo', function (req, res, next) {
     var newTodo = new TodoModel();
     newTodo.email = req.body.email;
@@ -100,5 +99,6 @@ router.delete('/todo/:id', function (req, res, next) {
             }
         });
 });
+
 
 module.exports = router;

@@ -5,6 +5,8 @@ var todoSchema = new mongoose.Schema({
 	email:String,
 	type:String,
 	checked:Boolean,
+
+
 });
 
 module.exports = mongoose.model('todo', todoSchema, 'todos');
